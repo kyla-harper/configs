@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/kharper/Workspace/virtualbadge/app/helpers'
+let g:netrw_dirhist_1='/home/kharper/Workspace/citizen_congress/app/views/devise/mailer'
+let g:netrw_dirhist_0='/home/kharper/Workspace/citizen_congress/app/views/devise'
+let g:netrw_dirhist_9='/home/kharper/Workspace/citizen_congress/app/views'
+let g:netrw_dirhist_8='/home/kharper/Workspace/citizen_congress/app/views/devise/mailer'
+let g:netrw_dirhist_7='/home/kharper/Workspace/citizen_congress/app/views/devise'
+let g:netrw_dirhist_6='/home/kharper/Workspace/citizen_congress/app/views'
+let g:netrw_dirhist_5='/home/kharper/Workspace/virtualbadge/app/assets/stylesheets'
+let g:netrw_dirhist_4='/home/kharper/Workspace/intoxiclock-keyportal/app/assets/stylesheets'
+let g:netrw_dirhist_3='/home/kharper/Workspace/intoxiclock-keyportal/app/views/layouts'
