@@ -219,5 +219,7 @@ gaps outer 5
 gaps inner 12
 smart_gaps on
 
-# Set up workspaces
+# Set up workspaces and relevant shortcuts
 workspace 1 output eDP1
+bindsym Mod4+n exec --no-startup-id xrandr --output DP2 --off
+bindsym Mod4+m exec --no-startup-id xrandr --output DP2 --auto --left-of eDP1
