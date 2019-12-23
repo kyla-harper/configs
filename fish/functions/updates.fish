@@ -1,9 +1,9 @@
-# Defined in /tmp/fish.8rANdL/updates.fish @ line 2
+# Defined in /tmp/fish.ZTjGep/updates.fish @ line 2
 function updates
 	sudo --validate
 
 	header Upgrade System Packages
-	sudo rankmirrors --country United_States,Canada --api --protocols https
+	sudo rankmirrors --country United_States --protocols https
 	pikaur -Syu
 
   header Rbenv
@@ -14,9 +14,10 @@ function updates
     cd $plugin
     echo -n "Updating" (basename (pwd))...
     git pull
+    echo
   end
 
-  header NViM Plugins
+  header NViM
   nvim +PlugClean! +PlugUpgrade +PlugUpdate +qa
   echo ...done
 
