@@ -45,6 +45,8 @@ Here's a sketch of how I set up a new machine. Eventually this will move into it
   * Start the app: `run-keybase`
   * Enable the service: `systemctl enable --user keybase`
   * Start the service: `systemctl start --user keybase`
+* Create a new SSH key with password: `ssh-keygen`
+* Log into Firefox account
 
 ## Optional Steps
 * Install Steam
