@@ -1,9 +1,9 @@
-# Defined in /tmp/fish.ZTjGep/updates.fish @ line 2
+# Defined in /tmp/fish.FKtdFY/updates.fish @ line 2
 function updates
 	sudo --validate
 
 	header Upgrade System Packages
-	sudo rankmirrors --country United_States --protocols https
+	sudo rankmirrors --country United_States --api --protocols https
 	pikaur -Syu
 
   header Rbenv
@@ -20,6 +20,9 @@ function updates
   header NViM
   nvim +PlugClean! +PlugUpgrade +PlugUpdate +qa
   echo ...done
+
+  header Oh My Fish
+  omf update
 
   cd ~
 end
