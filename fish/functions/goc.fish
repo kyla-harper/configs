@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.oXZx86/goc.fish @ line 1
-function goc --description 'Open all merge conflict files'
-	git diff --name-only | uniq | xargs nvim -p
+# Defined in - @ line 1
+function goc --description 'alias goc=git diff --name-only | uniq | xargs nvim -p'
+	git diff --name-only | uniq | xargs nvim -p $argv;
 end

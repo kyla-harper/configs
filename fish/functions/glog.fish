@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.NK1wqK/glog.fish @ line 2
-function glog --description 'Alias for git log'
-	git log --decorate --oneline --graph -n 15
+# Defined in - @ line 1
+function glog --description 'alias glog=git log --decorate --oneline --graph -n 15'
+	git log --decorate --oneline --graph -n 15 $argv;
 end

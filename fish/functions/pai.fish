@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.nC2FwX/pai.fish @ line 2
-function pai --description 'PikAur Install shortcut'
-	pikaur -S --needed $argv	
+# Defined in - @ line 1
+function pai --description 'alias pai=pikaur --sync --needed'
+	pikaur --sync --needed $argv;
 end

@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.013vru/gst.fish @ line 1
-function gst --description Alias\ for\ \'git\ status\'
-	git status -b
+# Defined in - @ line 1
+function gst --description 'alias gst=git status --branch --show-stash --ignored=matching'
+	git status --branch --show-stash --ignored=matching $argv;
 end
