@@ -14,7 +14,7 @@ Here's a sketch of how I set up a new machine. Eventually this will move into it
   * `makepkg -fsri`
 
 ## Install and set up applications
-* `pikaur kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code`
+* `pikaur kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat`
 * Kitty
   * Copy the stuff from the configs repo
   * Set it up as the default terminal
