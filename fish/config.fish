@@ -1,3 +1,6 @@
+# Start the wireless app
+nm-applet &
+
 # Kitty
 kitty + complete setup fish | source
 
