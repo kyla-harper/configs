@@ -14,7 +14,7 @@ Here's a sketch of how I set up a new machine. Eventually this will move into it
   * `makepkg -fsri`
 
 ## Install and set up applications
-* `pikaur kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat httpie`
+* `pikaur kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat httpie tidy`
 * Kitty
   * Copy the stuff from the configs repo
   * Set it up as the default terminal
@@ -25,8 +25,6 @@ Here's a sketch of how I set up a new machine. Eventually this will move into it
 * Neovim
   * Install ViM Plug: `curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
   * Install plugins: `nvim +PlugInstall +qa`
-* KeepassXC: Run the app and get to the point of opening the password file
-* Discord: Start and log in
 
 ## Set up Ruby environment
 * Install Rbenv:
@@ -46,8 +44,8 @@ Here's a sketch of how I set up a new machine. Eventually this will move into it
   * Enable the service: `systemctl enable --user keybase`
   * Start the service: `systemctl start --user keybase`
 * Create a new SSH key with password: `ssh-keygen`
-* Log into Firefox account
 
-## Optional Steps
-* Install Steam
-* Install Lutris
+## Post-Install Reminders
+* KeepassXC: Run the app and get to the point of opening the password file
+* Discord: Start and log in
+* Log into Firefox account
