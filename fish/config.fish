@@ -13,3 +13,7 @@ set --prepend PATH /home/kharper/.rbenv/bin
 status --is-interactive; and source (rbenv init -|psub)
 
 set --prepend PATH ~/.yarn/bin
+
+
+# tmux
+set -gx TERM tmux-256color
