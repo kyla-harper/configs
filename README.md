@@ -47,6 +47,9 @@ Here's a sketch of how I set up a new Manjaro i3 machine. Eventually this will m
   * Enable the service: `systemctl enable --user keybase`
   * Start the service: `systemctl start --user keybase`
 
+## Misc Items
+* Copy global gitignore
+
 ## Post-Setup Reminders
 * Install the latest Ruby version (and any other you might need):
   * List versions: `rbenv install --list`
