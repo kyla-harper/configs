@@ -49,6 +49,7 @@ Here's a sketch of how I set up a new Manjaro i3 machine. Eventually this will m
 
 ## Misc Items
 * Copy global gitignore
+* Copy scripts directory to home
 
 ## Post-Setup Reminders
 * Install the latest Ruby version (and any other you might need):

@@ -1,0 +1,18 @@
+[core]
+	excludesfile = ~/.gitignore
+[user]
+	email = kyla.seraphine@gmail.com
+	name = Kyla Harper
+[mergetool "nvim"]
+  cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\""
+[merge]
+	tool = nvim
+[mergetool]
+  prompt = false
+[difftool]
+  prompt = false
+[diff]
+  alorithm = histogram
+	tool = nvim
+[difftool "nvim"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
