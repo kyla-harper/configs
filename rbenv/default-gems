@@ -1,0 +1,6 @@
+bundler
+rails
+rubocop
+brakeman
+neovim
+haml-lint
