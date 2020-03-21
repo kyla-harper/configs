@@ -19,5 +19,7 @@ clone this repo into `~/Workspace/` and then run `install.sh`
 * KeepassXC: Run the app and get to the point of opening the password file
 * Create a new SSH key and give it a password: `ssh-keygen`
   * Add this key to Github and Gitlab accounts
-* Discord: Start and log in
-* Log into Firefox account
+* Log into apps
+  * Discord
+  * Slack (also add accounts)
+  * Firefox
