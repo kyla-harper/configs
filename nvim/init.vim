@@ -20,6 +20,9 @@ set autoread
 set hidden
 set splitright
 
+" Diff Options
+set diffopt=internal,filler,vertical,indent-heuristic,algorithm:histogram
+
 "#################################
 "#################################
 call plug#begin('~/.local/share/nvim/plugged')
@@ -30,6 +33,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'flaflasun/vim-nightowl'
+Plug 'megantiu/true.vim'
+Plug 'arzg/vim-colors-xcode'
+Plug 'tssm/fairyfloss.vim'
+
+autocmd VimEnter * set termguicolors
+autocmd VimEnter * colorscheme fairyfloss
 
 """""""""""""""""""""""""""""""""
 " Various Plugins
@@ -38,14 +47,8 @@ Plug 'godlygeek/tabular'             " Align text
 Plug 'jeetsukumaran/vim-buffergator' " Buffer navigation
 Plug 'jiangmiao/auto-pairs'          " Auto-close brackets/parenthesis/etc
 Plug 'wellle/context.vim'            " Shows which block of code you're in
-Plug 'alvan/vim-closetag'
-
-" Fuzzy Finding
-Plug 'junegunn/fzf.vim'
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \ fzf#vim#with_preview(), <bang>0)
+Plug 'alvan/vim-closetag'            " HTML tag closer
+Plug 'junegunn/fzf.vim'              " Fuzzy Finding
 
 " Indent Levels
 Plug 'Yggdroot/indentLine'
@@ -64,6 +67,7 @@ Plug 'amadeus/vim-mjml'           " MJML
 Plug 'kchmck/vim-coffee-script'   " CoffeeScript
 Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'udalov/kotlin-vim'          " Kotlin
+Plug 'dag/vim-fish'               " Fish Shell
 
 " Vue
 Plug 'posva/vim-vue'
@@ -136,9 +140,11 @@ augroup END
 " Code Completion
 """""""""""""""""""""""""""""""""
 Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemovePlugins' }
-" deoplete options
 let g:deoplete#enable_at_startup = 1
-autocmd VimEnter * call deoplete#custom#option('source', { '_': ['ale'] })
+autocmd VimEnter * call deoplete#custom#option(
+\  'source', { '_': ['ale'] },
+\  'min_pattern_length', 0
+\)
 
 """""""""""""""""""""""""""""""""
 " Statusbar ++
@@ -155,7 +161,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 """""""""""""""""""""""""""""""""
-" Rails Stuff
+" Ruby / Rails Stuff
 """""""""""""""""""""""""""""""""
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
@@ -163,11 +169,12 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
 
+" RSpec Handling
+Plug 'thoughtbot/vim-rspec'
+
 call plug#end()
 "#################################
 "#################################
-
-colorscheme dracula
 
 " Set filetype for typescriptreact
 augroup typescriptreact
@@ -219,4 +226,3 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 0gt
-
