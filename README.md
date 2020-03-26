@@ -10,6 +10,7 @@ clone this repo into `~/Workspace/` and then run `install.sh`
   * Make it so the install script can run from anywhere
   * Set up links to config files instead of copying them
   * Logging
+  * Postgres setup - grab username before creating role
 
 # Optional Items
   * Install Steam

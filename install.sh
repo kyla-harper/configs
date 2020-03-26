@@ -13,7 +13,7 @@ cd .. && rm -rf pikaur/
 cp ~/Workspace/configs/pikaur.conf ~/.config/
 
 # Install Applications
-pikaur -S kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat httpie tidy exa tmux firefox tldr python3 nodejs npm yarn
+pikaur -S kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat httpie tidy exa tmux firefox tldr python3 nodejs npm yarn spotify postgresql
 
 # Configure i3
 rm -rf ~/.i3
@@ -40,6 +40,14 @@ cp ~/Workspace/configs/rbenv/default-gems ~/.rbenv
 rbenv install (rbenv install -l | grep -v - | tail -1)
 rbenv global (rbenv install -l | grep -v - | tail -1)
 gem install rubocop rails haml-lint bundler
+
+# Postgres Setup
+sudo -iu postgres
+initdb -D /var/lib/postgres/data
+createuser --createdb --createrole --superuser kharper
+exit
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
 
 # Configure Neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
