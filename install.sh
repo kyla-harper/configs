@@ -13,7 +13,7 @@ cd .. && rm -rf pikaur/
 cp ~/Workspace/configs/pikaur.conf ~/.config/
 
 # Install Applications
-pikaur -S kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat httpie tidy exa tmux firefox tldr python3 nodejs npm yarn spotify postgresql
+pikaur -S kitty fish neovim keybase-bin keepassxc discord slack-desktop nerd-fonts-fira-code bat httpie tidy exa tmux firefox tldr python3 nodejs npm yarn spotify postgresql pavucontrol
 
 # Configure i3
 rm -rf ~/.i3
