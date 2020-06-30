@@ -1,9 +1,9 @@
-# Info
-This repo is place for me to store all of my configs and OS related stuff. Use at your own risk!
-
 # Setting up a new machine
 Here's a sketch of how I set up a new Manjaro i3 machine. To run the setup,
 clone this repo into `~/Workspace/` and then run `install.sh`
+
+This repo sets up a new Manjaro i3 machine. To start the install:
+`wget -O - https://github.com/SansSeryph/configs | bash`
 
 # To Dos
   * Find a way to start the keybase service
@@ -11,9 +11,6 @@ clone this repo into `~/Workspace/` and then run `install.sh`
   * Set up links to config files instead of copying them
   * Logging
   * Postgres setup - grab username before creating role
-
-# Optional Items
-  * Install Steam
 
 # Post-Setup Reminders
 * Keybase: Log in and add new device
