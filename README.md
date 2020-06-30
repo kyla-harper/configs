@@ -1,7 +1,4 @@
 # Setting up a new machine
-Here's a sketch of how I set up a new Manjaro i3 machine. To run the setup,
-clone this repo into `~/Workspace/` and then run `install.sh`
-
 This repo sets up a new Manjaro i3 machine. To start the install:
 `wget -O - https://github.com/SansSeryph/configs | bash`
 

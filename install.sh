@@ -47,6 +47,7 @@ ln -s ~/Workspace/configs/i3status ~/.config/i3status
 
 [[ -f ~/.config/i3-scrot.conf ]] && mv ~/.config/i3-scrot.conf ~/.config/i3-scrot.conf.bak
 ln -s ~/Workspace/configs/i3-scrot.conf ~/.config/i3-scrot.conf
+
 i3 reload
 
 ######################################################################
