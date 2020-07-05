@@ -1,6 +1,6 @@
 # Setting up a new machine
 This repo sets up a new Manjaro i3 machine. To start the install:
-`wget -O - https://github.com/SansSeryph/configs | bash`
+`wget -O - https://raw.githubusercontent.com/SansSeryph/configs/master/install.sh | bash`
 
 # To Dos
   * Logging
