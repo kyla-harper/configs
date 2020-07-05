@@ -1,3 +1,6 @@
+# Set the resolution
+xrandr --output VGA-1 --mode 1920x1080
+
 # Kitty
 kitty + complete setup fish | source
 

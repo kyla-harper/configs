@@ -9,7 +9,7 @@ sudo pacman -Syyu --noconfirm
 ######################################################################
 # VirtualBox Setup
 ######################################################################
-sudo pacman -S --noconfirm virtualbox-guest-utils xf86-video-vmware
+sudo pacman -S --noconfirm --needed virtualbox-guest-utils xf86-video-vmware
 sudo systemctl enable vboxservice
 sudo systemctl start vboxservice
 VBoxClient-all
@@ -34,7 +34,7 @@ ln -s ~/Workspace/configs/pikaur.conf ~/.config/
 ######################################################################
 # Install Applications
 ######################################################################
-pikaur -S --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy exa tmux firefox tldr python3 nodejs npm yarn postgresql pavucontrol
+pikaur -S --needed --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy exa tmux firefox tldr python3 nodejs npm yarn postgresql pavucontroa python3 python-pip python2 python2-pip
 
 ######################################################################
 # Configure i3
@@ -58,23 +58,25 @@ ln -s ~/Workspace/configs/kitty ~/.config/kitty
 
 [[ -d ~/.config/fish ]] && mv ~/.config/fish ~/.config/fish_bak
 ln -s ~/Workspace/configs/fish ~/.config/fish
-curl -L https://get.oh-my.fish | fish
-chsh -s /usr/bin/fish
+chsh -s /bin/fish
 
 ######################################################################
 # Install Ruby environment
 ######################################################################
-fish ruby_setup.fish
+fish ~/configs/ruby_setup.fish
 
 ######################################################################
 # Postgres Setup
 ######################################################################
 sudo systemctl enable postgresql
-sudo systemctl start postgresql
 sudo -iu postgres
 initdb -D /var/lib/postgres/data
+exit
+
+sudo systemctl start postgresql
+sudo -iu postgres
 createuser --createdb --createrole --superuser kharper
-exit # leave the psql shell
+exit
 
 ######################################################################
 # Configure Neovim
@@ -82,7 +84,8 @@ exit # leave the psql shell
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user msgpack neovim
 pip3 install --upgrade --user msgpack
-gem install neovim
+pip2 install --user msgpack neovim
+pip2 install --upgrade --user msgpack
 yarn global add neovim
 
 [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_bak
@@ -100,3 +103,10 @@ ln -s  ~/Workspace/configs/gitignore ~/.gitignore
 
 [[ -f ~/.config/mimeapps.list ]] && mv ~/.config/mimeapps.list ~/.config/mimeapps.list.bak
 ln -s ~/Workspace/configs/mimeapps.list ~/.config/mimeapps.list
+
+######################################################################
+# End of install messages
+######################################################################
+echo "Change your password to something more secure!"
+echo "Be sure to create your ssh files: ssh-keygen"
+echo "Add your ssh key file to Github: https://github.com"

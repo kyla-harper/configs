@@ -21,8 +21,5 @@ function updates
   nvim +PlugClean! +PlugUpgrade +PlugUpdate +qa
   echo ...done
 
-  header Oh My Fish
-  omf update
-
   cd ~
 end
