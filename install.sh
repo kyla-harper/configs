@@ -9,7 +9,7 @@ sudo pacman -Syyu --noconfirm
 ######################################################################
 # VirtualBox Setup
 ######################################################################
-sudo pacman -S --noconfirm --needed virtualbox-guest-utils xf86-video-vmware
+sudo pacman -S --noconfirm --needed virtualbox-guest-utils virtualbox-guest-x11
 sudo systemctl enable vboxservice
 sudo systemctl start vboxservice
 VBoxClient-all
@@ -110,3 +110,4 @@ ln -s ~/Workspace/configs/mimeapps.list ~/.config/mimeapps.list
 echo "Change your password to something more secure!"
 echo "Be sure to create your ssh files: ssh-keygen"
 echo "Add your ssh key file to Github: https://github.com"
+echo "You might need to re-link the fish configs"
