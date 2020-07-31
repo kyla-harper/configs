@@ -1,12 +1,3 @@
-# Set the resolution
-xrandr --output VGA-1 --mode 1920x1080 --output VGA-2 --below VGA-1 --mode 1920x1080
-
-# Make sure Virtualbox services are running
-VBoxClient-all
-
-# Kitty
-kitty + complete setup fish | source
-
 # Environment variables
 set -gx EDITOR nvim
 set -gx VISUAL nvim

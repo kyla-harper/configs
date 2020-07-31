@@ -3,13 +3,13 @@
 ######################################################################
 # Update System
 ######################################################################
-sudo rankmirrors --country United_States,Cananda --api --protocols https
+sudo rankmirrors --country United_States,Canada --api --protocols https
 sudo pacman -Syyu --noconfirm
 
 ######################################################################
 # VirtualBox Setup
 ######################################################################
-sudo pacman -S --noconfirm --needed virtualbox-guest-utils virtualbox-guest-x11
+sudo pacman -S --noconfirm --needed virtualbox-guest-utils xf86-video-vmware
 sudo systemctl enable vboxservice
 sudo systemctl start vboxservice
 VBoxClient-all
@@ -34,7 +34,7 @@ ln -s ~/Workspace/configs/pikaur.conf ~/.config/
 ######################################################################
 # Install Applications
 ######################################################################
-pikaur -S --needed --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy exa tmux firefox tldr python3 nodejs npm yarn postgresql pavucontroa python3 python-pip python2 python2-pip
+pikaur -S --needed --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy exa tmux firefox tldr nodejs npm yarn postgresql pavucontrol python3 python-pip python2 python2-pip
 
 ######################################################################
 # Configure i3
@@ -51,6 +51,11 @@ ln -s ~/Workspace/configs/i3-scrot.conf ~/.config/i3-scrot.conf
 i3 reload
 
 ######################################################################
+# Install Ruby environment
+######################################################################
+fish ~/Workspace/configs/ruby_setup.fish
+
+######################################################################
 # Configure Terminal Environment (Kitty + Fish)
 ######################################################################
 [[ -d ~/.config/kitty ]] && mv ~/.config/kitty ~/.config/kitty_bak
@@ -58,25 +63,21 @@ ln -s ~/Workspace/configs/kitty ~/.config/kitty
 
 [[ -d ~/.config/fish ]] && mv ~/.config/fish ~/.config/fish_bak
 ln -s ~/Workspace/configs/fish ~/.config/fish
-chsh -s /bin/fish
 
-######################################################################
-# Install Ruby environment
-######################################################################
-fish ~/configs/ruby_setup.fish
+chsh -s /bin/fish
 
 ######################################################################
 # Postgres Setup
 ######################################################################
-sudo systemctl enable postgresql
-sudo -iu postgres
-initdb -D /var/lib/postgres/data
-exit
-
-sudo systemctl start postgresql
-sudo -iu postgres
-createuser --createdb --createrole --superuser kharper
-exit
+#sudo systemctl enable postgresql
+#sudo -iu postgres
+#initdb -D /var/lib/postgres/data
+#exit
+#
+#sudo systemctl start postgresql
+#sudo -iu postgres
+#createuser --createdb --createrole --superuser kharper
+#exit
 
 ######################################################################
 # Configure Neovim
@@ -90,7 +91,7 @@ yarn global add neovim
 
 [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_bak
 ln -s ~/Workspace/configs/nvim ~/.config/nvim
-nvim +PlugInstall +qa
+nvim +PlugInstall +qa +UpdateRemotePlugins
 
 ######################################################################
 # Grab the rest of the config files

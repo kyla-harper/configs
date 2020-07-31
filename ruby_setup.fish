@@ -12,4 +12,4 @@ git clone https://github.com/rbenv/rbenv-default-gems.git (rbenv root)/plugins/r
 ln -s ~/Workspace/configs/rbenv/default-gems ~/.rbenv/default-gems
 rbenv install (rbenv install -l | grep -v - | tail -1)
 rbenv global (rbenv install -l | grep -v - | tail -1)
-gem install rubocop rails haml-lint bundler
+rbenv exec gem install rubocop rails haml-lint bundler
