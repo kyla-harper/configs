@@ -19,6 +19,7 @@ set history=1000
 set autoread
 set hidden
 set splitright
+set textwidth=80
 
 " Diff Options
 set diffopt=internal,filler,vertical,indent-heuristic,algorithm:histogram
@@ -38,7 +39,7 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'tssm/fairyfloss.vim'
 
 autocmd VimEnter * set termguicolors
-autocmd VimEnter * colorscheme fairyfloss
+autocmd VimEnter * colorscheme onehalfdark
 
 """""""""""""""""""""""""""""""""
 " Various Plugins
@@ -66,7 +67,6 @@ Plug 'tpope/vim-sensible' " Some default vim settings
 Plug 'amadeus/vim-mjml'           " MJML
 Plug 'kchmck/vim-coffee-script'   " CoffeeScript
 Plug 'leafgarland/typescript-vim' " Typescript
-Plug 'udalov/kotlin-vim'          " Kotlin
 Plug 'dag/vim-fish'               " Fish Shell
 
 " Vue
@@ -75,39 +75,56 @@ autocmd FileType vue syntax sync fromstart
 
 " Javascript
 Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+
+" JSX
 Plug 'MaxMEllon/vim-jsx-pretty'
 let g:vim_jsx_pretty_colorful_config = 1
 
 """""""""""""""""""""""""""""""""
+" Language Server
+"""""""""""""""""""""""""""""""""
+Plug 'autozimu/LanguageClient-neovim', {
+\ 'branch': 'next',
+\ 'do': 'bash install.sh',
+\ }
+
+"""""""""""""""""""""""""""""""""
 " Linting / Fixing
 """""""""""""""""""""""""""""""""
+" completion
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 100
+let g:ale_completion_excluded_words = ['it']
+let g:ale_completion_tsserver_autoimport = 1
+
 Plug 'dense-analysis/ale'
 
 " misc options
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 
-" completion
-let g:ale_completion_enabled = 0 " off since deoplete is in use
-let g:ale_completion_delay = 50
-let g:ale_completion_excluded_words = ['it']
-let g:ale_completion_tsserver_autoimport = 1
-
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " linting
-let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_enter = 1
-let g:ale_kotlin_ktlint_options = '--android'
 
 " errors list
 let g:ale_echo_cursor = 1
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 1
+let g:ale_keep_list_window_open = 0
 let g:ale_list_window_size = 7
 let g:ale_loclist_msg_format = '[%severity%] %linter% -- %code: %%s'
+let g:ale_echo_msg_format = '[%severity%] %linter% -- %code: %%s'
+
+" language-specific
+let g:ale_ruby_rubocop_options = 'bundle'
+let g:ale_ruby_solargraph_options = 'solargraph'
+let g:ale_javascript_eslint_executable = 'eslint'
+let g:ale_javascript_eslint_suppress_eslintignore = 1
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -121,7 +138,6 @@ let g:ale_linters = {
   \ 'vue': ['eslint', 'vls'],
   \ 'jsx': ['stylelint', 'eslint', 'prettier'],
   \ 'ruby': ['rubocop'],
-  \ 'kotlin': ['ktlint']
   \ }
 
 let g:ale_fixers = {
@@ -135,16 +151,6 @@ augroup CloseLoclistWindowGroup
   autocmd!
   autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
-
-"""""""""""""""""""""""""""""""""
-" Code Completion
-"""""""""""""""""""""""""""""""""
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemovePlugins' }
-let g:deoplete#enable_at_startup = 1
-autocmd VimEnter * call deoplete#custom#option(
-\  'source', { '_': ['ale'] },
-\  'min_pattern_length', 0
-\)
 
 """""""""""""""""""""""""""""""""
 " Statusbar ++
@@ -176,7 +182,9 @@ call plug#end()
 "#################################
 "#################################
 
+""""""""""""""""""""""""""""""""""
 " Set filetype for typescriptreact
+""""""""""""""""""""""""""""""""""
 augroup typescriptreact
   au!
   autocmd BufNewFile, BufRead *.tsx set filetype=typescript

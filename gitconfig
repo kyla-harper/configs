@@ -1,7 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore
 [user]
-	email = kyla.seraphine@gmail.com
+	email = kyla.harper@hey.com
 	name = Kyla Harper
 [mergetool "nvim"]
   cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\""
@@ -16,3 +16,5 @@
 	tool = nvim
 [difftool "nvim"]
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[pull]
+	rebase = true

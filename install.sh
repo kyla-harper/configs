@@ -28,13 +28,15 @@ git clone https://aur.archlinux.org/pikaur.git ~/pikaur
 cd ~/pikaur
 makepkg -fsri --noconfirm --needed
 cd && rm -rf ~/pikaur/
-[[ -f ~/.configs/pikaur.conf ]] && mv ~/.configs/pikaur.conf ~/.configs/pikaur.conf.bak
+[[ -f ~/.config/pikaur.conf ]] && mv ~/.config/pikaur.conf ~/.config/pikaur.conf.bak
 ln -s ~/Workspace/configs/pikaur.conf ~/.config/
 
 ######################################################################
 # Install Applications
 ######################################################################
-pikaur -S --needed --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy exa tmux firefox tldr nodejs npm yarn postgresql pavucontrol python3 python-pip python2 python2-pip
+pikaur -S --needed --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy \
+  exa tmux firefox tldr nodejs npm yarn postgresql pavucontrol python          \
+  python-pip languageclient-neovim
 
 ######################################################################
 # Configure i3
@@ -69,29 +71,27 @@ chsh -s /bin/fish
 ######################################################################
 # Postgres Setup
 ######################################################################
-#sudo systemctl enable postgresql
-#sudo -iu postgres
-#initdb -D /var/lib/postgres/data
-#exit
-#
-#sudo systemctl start postgresql
-#sudo -iu postgres
-#createuser --createdb --createrole --superuser kharper
-#exit
+sudo systemctl enable postgresql
+sudo -iu postgres
+initdb -D /var/lib/postgres/data
+exit
+
+sudo systemctl start postgresql
+sudo -iu postgres
+createuser --createdb --createrole --superuser kharper
+exit
 
 ######################################################################
 # Configure Neovim
 ######################################################################
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-pip3 install --user msgpack neovim
-pip3 install --upgrade --user msgpack
-pip2 install --user msgpack neovim
-pip2 install --upgrade --user msgpack
+pip install --user msgpack neovim pynvim
+pip install --upgrade --user msgpack pynvim
 yarn global add neovim
 
 [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_bak
 ln -s ~/Workspace/configs/nvim ~/.config/nvim
-nvim +PlugInstall +qa +UpdateRemotePlugins
+nvim +PlugInstall +UpdateRemotePlugins +qa
 
 ######################################################################
 # Grab the rest of the config files

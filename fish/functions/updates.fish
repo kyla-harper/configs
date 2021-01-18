@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.FKtdFY/updates.fish @ line 2
+# Defined in /tmp/fish.r7BHcQ/updates.fish @ line 2
 function updates
 	sudo --validate
 
@@ -18,8 +18,11 @@ function updates
   end
 
   header NViM
-  nvim +PlugClean! +PlugUpgrade +PlugUpdate +qa
+  nvim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa
   echo ...done
+
+  header Pip Upgrades
+  pip install --upgrade
 
   cd ~
 end
