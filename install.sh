@@ -78,7 +78,7 @@ exit
 
 sudo systemctl start postgresql
 sudo -iu postgres
-createuser --createdb --createrole --superuser kharper
+createuser --createdb --createrole --superuser sansseryph
 exit
 
 ######################################################################
