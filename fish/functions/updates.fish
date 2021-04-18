@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.r7BHcQ/updates.fish @ line 2
+# Defined in /tmp/fish.6U5Qvn/updates.fish @ line 2
 function updates
 	sudo --validate
 
@@ -22,7 +22,7 @@ function updates
   echo ...done
 
   header Pip Upgrades
-  pip install --upgrade
+  pip install --upgrade pip
 
   cd ~
 end
