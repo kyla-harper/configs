@@ -1,0 +1,38 @@
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:import/errors'
+  - 'plugin:import/warnings'
+  - 'plugin:jest/all'
+  - 'plugin:jsx-a11y/recommended'
+  - 'plugin:promise/recommended'
+  - 'plugin:react/recommended'
+  - 'plugin:react-hooks/recommended'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 12
+  sourceType: module
+plugins:
+  - import
+  - jest
+  - jsx-a11y
+  - promise
+  - react
+  - react-hooks
+rules:
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - never
