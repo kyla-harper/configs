@@ -89,6 +89,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rbenv'
 
 call plug#end()
 """"""""""""""""""""""""""""""
