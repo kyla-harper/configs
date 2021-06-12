@@ -4,3 +4,4 @@ rubocop
 brakeman
 neovim
 haml-lint
+hookup

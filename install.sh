@@ -36,7 +36,7 @@ ln -s ~/Workspace/configs/pikaur.conf ~/.config/
 ######################################################################
 pikaur -S --needed --noconfirm kitty fish neovim nerd-fonts-fira-code bat tidy \
   exa tmux firefox tldr nodejs npm yarn postgresql pavucontrol python          \
-  python-pip languageclient-neovim
+  python-pip languageclient-neovim ctags
 
 ######################################################################
 # Configure i3
@@ -94,7 +94,7 @@ ln -s ~/Workspace/configs/nvim ~/.config/nvim
 nvim +PlugInstall +UpdateRemotePlugins +qa
 
 ######################################################################
-# Grab the rest of the config files
+# Git Configs
 ######################################################################
 [[ -f ~/.gitconfig ]] && mv ~/.gitconfig ~/.gitconfig.bak
 ln -s ~/Workspace/configs/gitconfig ~/.gitconfig
@@ -102,8 +102,17 @@ ln -s ~/Workspace/configs/gitconfig ~/.gitconfig
 [[ -f ~/.gitignore ]] && mv ~/.gitignore ~/.gitignore.bak
 ln -s  ~/Workspace/configs/gitignore ~/.gitignore
 
+[[ -f ~/.git_template ]] && mv ~/.git_template ~/.git_template.bak
+ln -s  ~/Workspace/configs/git_template ~/.git_template
+
+######################################################################
+# Grab the rest of the config files
+######################################################################
 [[ -f ~/.config/mimeapps.list ]] && mv ~/.config/mimeapps.list ~/.config/mimeapps.list.bak
 ln -s ~/Workspace/configs/mimeapps.list ~/.config/mimeapps.list
+
+[[ -f ~/.tmux.conf ]] && mv ~/.tmux.conf ~/.tmux.conf.bak
+ln -s ~/Workspace/configs/tmux.conf ~/.tmux.conf
 
 ######################################################################
 # End of install messages
@@ -111,4 +120,4 @@ ln -s ~/Workspace/configs/mimeapps.list ~/.config/mimeapps.list
 echo "Change your password to something more secure!"
 echo "Be sure to create your ssh files: ssh-keygen"
 echo "Add your ssh key file to Github: https://github.com"
-echo "You might need to re-link the fish configs"
+echo "Run vim's :checkhealth command and fix that stuff"

@@ -1,7 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore
 [user]
-	email = kyla.harper@hey.com
+	email = kyla.seraphine@gmail.com
 	name = Kyla Harper
 [mergetool "nvim"]
   cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\""
@@ -18,3 +18,8 @@
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
