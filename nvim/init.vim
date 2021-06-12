@@ -1,3 +1,6 @@
+" Don't check for python 2
+let g:loaded_python_provider = 0
+
 " Tabs
 set expandtab
 set tabstop=2
@@ -48,7 +51,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " General
 Plug '907th/vim-auto-save'
 Plug 'dense-analysis/ale'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -57,8 +59,9 @@ Plug 'vim-ruby/vim-ruby'
 
 " Content Insertion
 Plug 'preservim/nerdcommenter'
-Plug 'sirver/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Colorschemes
 Plug 'arzg/vim-colors-xcode'
@@ -105,7 +108,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 augroup FileTypeGroup
   autocmd!
-  au BufNewFile,BufRead *.jsx.* set filetype=javascript.jsx
+  au BufNewFile,BufRead *.jsx* set filetype=javascript.jsx
 augroup END
 
 let g:ale_linters = {
@@ -125,11 +128,17 @@ augroup CloseLoclistWindowGroup
 augroup END
 
 " junegunn/fzf
-noremap <leader>f :FZF<CR>
+noremap <leader>f :Files<CR>
 noremap <leader>g :Rg<CR>
+noremap <leader>b :Buffers<CR>
 
 " 907th/vim-auto-save
 let g:auto_save = 1
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-n>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " Colorscheme
 set termguicolors

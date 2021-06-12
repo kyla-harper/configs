@@ -28,7 +28,8 @@ git clone https://aur.archlinux.org/pikaur.git ~/pikaur
 cd ~/pikaur
 makepkg -fsri --noconfirm --needed
 cd && rm -rf ~/pikaur/
-[[ -f ~/.config/pikaur.conf ]] && mv ~/.config/pikaur.conf ~/.config/pikaur.conf.bak
+[[ -f ~/.config/pikaur.conf ]] && \
+  mv ~/.config/pikaur.conf ~/.config/pikaur.conf.bak
 ln -s ~/Workspace/configs/pikaur.conf ~/.config/
 
 ######################################################################

@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.6U5Qvn/updates.fish @ line 2
+# Defined in /tmp/fish.zzWOEr/updates.fish @ line 2
 function updates
 	sudo --validate
 
@@ -18,6 +18,7 @@ function updates
   end
 
   header NViM
+  ~/.local/share/nvim/plugged/YouCompleteMe/install.py
   nvim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa
   echo ...done
 
