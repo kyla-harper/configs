@@ -9,12 +9,18 @@ set -Ux fish_user_paths ~/.rbenv/bin $fish_user_paths
 
 # Add Plugins
 mkdir -p (rbenv root)/plugins
-git clone https://github.com/rbenv/ruby-build.git (rbenv root)/plugins/ruby-build
-git clone https://github.com/rbenv/rbenv-default-gems.git (rbenv root)/plugins/rbenv-default-gems
-git clone git://github.com/tpope/rbenv-ctags.git (rbenv root)/plugins/rbenv-ctags
+
+git clone https://github.com/rbenv/ruby-build.git \
+   (rbenv root)/plugins/ruby-build
+git clone https://github.com/rbenv/rbenv-default-gems.git \
+   (rbenv root)/plugins/rbenv-default-gems
+git clone git://github.com/tpope/rbenv-ctags.git \
+   (rbenv root)/plugins/rbenv-ctags
+git clone git://github.com/tpope/rbenv-sentience.git \
+   (rbenv root)/plugins/rbenv-sentience
 
 [ -f ~/.rbenv/default-gems ] && mv ~/.rbenv/default-gems ~/.rbenv/default-gems.bak
-ln -s ~/Workspace/configs/rbenv/default-gems ~/.rbenv/default-gems
+ln -s ~/Workspace/configs/rbenv/default-gems (rbenv root)/default-gems
 
 # Get the lastest Ruby
 rbenv install (rbenv install --list-all | grep -v - | tail -1)
