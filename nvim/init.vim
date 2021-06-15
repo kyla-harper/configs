@@ -90,6 +90,9 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
 
 call plug#end()
 """"""""""""""""""""""""""""""
