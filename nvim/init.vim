@@ -1,6 +1,3 @@
-" Don't check for python 2
-let g:loaded_python_provider = 0
-
 " Tabs
 set expandtab
 set tabstop=2
@@ -42,6 +39,7 @@ noremap <leader>x :source ~/.config/nvim/init.vim<CR>
 
 " Other keyboard shortcuts
 noremap <C-l> :nohl<CR>
+noremap <c-x> :%bd!<CR>
 
 """"""""""""""""""""""""""""""
 " Plugins START
@@ -56,6 +54,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'raimondi/delimitmate'
 Plug 'vim-ruby/vim-ruby'
+Plug 'alvan/vim-closetag'
 
 " Content Insertion
 Plug 'preservim/nerdcommenter'
@@ -89,6 +88,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rvm'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rake'
@@ -110,10 +110,8 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-augroup FileTypeGroup
-  autocmd!
-  au BufNewFile,BufRead *.jsx* set filetype=javascript.jsx
-augroup END
+au BufNewFile,BufRead *.js* set filetype=javascript.jsx
+au BufNewFile,BufRead *.jsx* set filetype=javascript.jsx
 
 let g:ale_linters = {
   \ 'jsx': ['stylelint', 'eslint', 'prettier'],
@@ -122,6 +120,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
   \ 'javascript': ['eslint', 'prettier'],
+  \ 'javascript.jsx': ['eslint', 'prettier'],
   \ 'ruby': ['rubocop'],
   \ '*': ['remove_trailing_lines', 'trim_whitespace']
   \ }
@@ -135,6 +134,7 @@ augroup END
 noremap <leader>f :Files<CR>
 noremap <leader>g :Rg<CR>
 noremap <leader>b :Buffers<CR>
+noremap <c-f> :Rg<cword><CR>
 
 " 907th/vim-auto-save
 let g:auto_save = 1
@@ -143,6 +143,21 @@ let g:auto_save = 1
 let g:UltiSnipsExpandTrigger="<c-n>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+" alvan/vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript.jsx'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,javascript.jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 " Colorscheme
 set termguicolors
