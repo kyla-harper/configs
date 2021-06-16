@@ -2,12 +2,15 @@
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 
-# Paaaaaaaths
-# fish_add_path --append ~/.local/bin
-
 # Add things to PATH
-set --prepend PATH ~/.rbenv/bin
+type -q rbenv && set --prepend PATH ~/.rbenv/bin
 set --prepend PATH ~/.yarn/bin
 
-# Set up rbenv
-status --is-interactive; and source (rbenv init -|psub)
+# Configure Environment
+status --is-interactive
+if [ $status -eq 0 ]
+  type -q rvm && rvm default
+  type -q rbenv && source (rbenv init -|psub)
+
+  kitty + complete setup fish | source
+end
